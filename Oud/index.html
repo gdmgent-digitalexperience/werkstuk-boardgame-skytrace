@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Skytrace</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	<div class="backdrop"></div>
+	<div class="backdrop backdrop-alt"></div>
+
+	<button id="home-button" class="home-button" type="button">Home</button>
+
+	<main class="app-shell">
+		<header class="hero">
+			<h1>Skytrace</h1>
+			<p id="hero-copy" class="hero-copy">Vul je naam in bij de juiste kleur. Zet een schuine streep (/) bij de kleuren die niet gebruikt worden.</p>
+		</header>
+
+		<section id="setup-screen" class="screen screen-active" aria-labelledby="setup-title">
+			<div class="section-header">
+				<h2 id="setup-title">1. Vul de spelers in</h2>
+			</div>
+
+			<div id="setup-grid" class="hex-grid" aria-label="Speler invoer"></div>
+
+			<div class="actions">
+				<button id="continue-button" class="primary-button" type="button" disabled>Ga verder</button>
+			</div>
+		</section>
+
+		<section id="roster-screen" class="screen" aria-labelledby="roster-title">
+			<div class="section-header">
+				<h2 id="roster-title">2. Kies een speler</h2>
+			</div>
+
+			<div id="roster-board" class="roster-board" aria-live="polite"></div>
+		</section>
+
+		<section id="quiz-screen" class="screen" aria-labelledby="quiz-title">
+			<div class="section-header">
+				<h2 id="quiz-title">3. Typ een codewoord</h2>
+				<p>Voer het woord in dat op je kanskaart staat.</p>
+			</div>
+
+			<div class="quiz-layout">
+				<article class="panel player-panel">
+					<p class="panel-label">Speler</p>
+					<h3 id="active-player-name">-</h3>
+					<p id="active-player-color" class="player-color-chip">-</p>
+					<div class="mini-track">
+						<div id="active-player-position" class="mini-track-bar"></div>
+					</div>
+				</article>
+
+				<article class="panel">
+					<p class="panel-label">Codewoord</p>
+					<form id="word-form" class="word-form">
+						<input id="word-input" type="text" autocomplete="off" placeholder="Typ hier een woord" aria-label="Woord invoeren">
+						<button class="primary-button" type="submit">Open vraag</button>
+					</form>
+					<p id="word-feedback" class="feedback" role="status"></p>
+				</article>
+			</div>
+
+			<article id="question-panel" class="panel question-panel hidden" aria-live="polite"></article>
+			<article id="result-panel" class="panel result-panel hidden" aria-live="polite"></article>
+
+			<div class="actions">
+				<button id="back-to-roster" class="secondary-button hidden" type="button">Terug naar spelers</button>
+			</div>
+		</section>
+	</main>
+
+	<script src="app.js"></script>
+</body>
+</html>
